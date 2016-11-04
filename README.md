@@ -1,5 +1,5 @@
 # simple-data-storage
-A node.js server receiving data via REST. This is a simple server for testing purposes.
+A node.js server receiving data via REST. This is a simple server for testing purposes, i.e. data is just stored in-memory.
 
 ## How-to
 1. Checkout the project using: ```git clone git@github.com:seeebiii/simple-data-storage.git```
@@ -12,6 +12,19 @@ A node.js server receiving data via REST. This is a simple server for testing pu
  
 POST http://localhost:5000/data
 ```
+
+## Api
+**GET /data**
+
+Returns an array of the last 10 entries (or all entries if there are < 10 entries).
+
+**POST /data**
+
+Add some data to the storage by sending a json object containing a ```value``` field. In case of success it returns HTTP status code 200 and the location of the added data in the ```location``` header of the response. The location URL might look like ```http://localhost:8000/data/1```.
+
+**DELETE /data/:id**
+
+Removes the data at the specified position. Returns HTTP status code 200 if the value has been removed.
 
 ## License
 MIT License
