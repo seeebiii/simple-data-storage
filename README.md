@@ -16,15 +16,15 @@ POST http://localhost:5000/data
 ## Api
 **GET /data**
 
-Returns an array of the last 10 entries (or all entries if there are < 10 entries).
+Returns the last stored value. If no value has been stored before or the value has been deleted with **DELETE**, ```null``` will be returned.
 
 **POST /data**
 
-Add some data to the storage by sending a json object containing a ```value``` field. In case of success it returns HTTP status code 200 and the location of the added data in the ```location``` header of the response. The location URL might look like ```http://localhost:8000/data/1```.
+Add some data to the storage by sending a json object containing a ```value``` field. In case of success it returns HTTP status code 200 and the location of the added data in the ```location``` header of the response. The location URL might look like ```http://localhost:8000/data```.
 
-**DELETE /data/:id**
+**DELETE /data**
 
-Removes the data at the specified position. Returns HTTP status code 200 if the value has been removed.
+Removes the value. Returns HTTP status code 200 if the value has been removed.
 
 ## License
 MIT License
